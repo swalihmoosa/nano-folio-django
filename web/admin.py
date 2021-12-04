@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from web.models import About, Category, Contact, Gallery
+from web.models import About, Address, Category, Contact, Gallery
 
 
 admin.site.register(Category)
@@ -19,3 +19,6 @@ class AboutAdmin(admin.ModelAdmin):
     list_display = ["title", "description", "image"]
 
 admin.site.register(About, AboutAdmin)
+
+
+admin.site.register(Address)

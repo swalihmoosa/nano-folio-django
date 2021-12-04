@@ -25,22 +25,16 @@
             <div class="container">
                 <div class="left">
                     <div class="icon">
-                        <img src="{% static 'img/users-solid.svg' %}" alt="Image" />
+                        <img src="{{abouts.image.url}}" alt="Image" />
                     </div>
                     <h3>
-                        About Us
+                        {{abouts.title}}
                     </h3>
                 </div>
 
                 <div class="right">
                     <p>
-                        NAno Folio is simple HTML template with a minimal very light-weight custom CSS file.Max content width is 
-                        940 pixels. You can easily change the width or any part in this template.Gallery comes with a pop-up image 
-                        and simple categories.
-                    </p>
-                    <p>
-                        Pleae support Toolplate website by telling your friends about it. That is going to be very helpful for us.
-                        Feel free to <b> message us</b> via email or live chat if you have anything to say.
+						{{abouts.description}}
                     </p>
                 </div>
             </div>
@@ -57,19 +51,12 @@
 			  <li><a href="#">Show all</a></li>
 			</ul>
 		  </div>
-		  <div class="bottom">
-			<div class="frame"><img src="{% static './img/img-01.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-02.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-03.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-04.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-05.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-06.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-07.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-08.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-09.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-10.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-11.jpg' %}" alt="Image" /></div>
-			<div class="frame"><img src="{% static './img/img-12.jpg' %}" alt="Image" /></div>
+		<div class="bottom">
+			{% for gallery in galleries %}
+			<div class="frame">
+				<img src="{{gallery.image.url}}" alt="Image" />
+			</div>
+			{% endfor %}
 		  </div>
 		</section>
 	  </section>

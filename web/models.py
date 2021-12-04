@@ -16,7 +16,7 @@ class Gallery(models.Model):
     Category = models.ForeignKey("web.Category",on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.image
+        return str(self.image)
 
     class Meta:
         ordering = ["id"]
@@ -35,12 +35,22 @@ class Contact(models.Model):
 
 
 class About(models.Model):
-    image = models.ImageField(upload_to="about/")
+    image = models.FileField(upload_to="about/")
     title = models.CharField(max_length=155)
     description = models.TextField(max_length=255)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ["id"]
+
+
+class Address(models.Model):
+    address = models.TextField(max_length=255)
+
+    def __str__(self):
+        return self.address
 
     class Meta:
         ordering = ["id"]
