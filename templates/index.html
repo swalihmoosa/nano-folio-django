@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+	<title>Document</title>
+</head>
+<body>
+	<section id="spotlight">
+		<section class="wrapper">
+			<div class="contents">
+				<div class="heart-shape">
+					<span>&#10084;</span>
+				</div>
+				<h1>Nano Folio</h1>
+			</div>
+		</section>
+	</section>
+
+    <section id="about">
+        <section class="wrapper">
+            <div class="container">
+                <div class="left">
+                    <div class="icon">
+                        <img src="{% static 'img/users-solid.svg' %}" alt="Image" />
+                    </div>
+                    <h3>
+                        About Us
+                    </h3>
+                </div>
+
+                <div class="right">
+                    <p>
+                        NAno Folio is simple HTML template with a minimal very light-weight custom CSS file.Max content width is 
+                        940 pixels. You can easily change the width or any part in this template.Gallery comes with a pop-up image 
+                        and simple categories.
+                    </p>
+                    <p>
+                        Pleae support Toolplate website by telling your friends about it. That is going to be very helpful for us.
+                        Feel free to <b> message us</b> via email or live chat if you have anything to say.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+	<section id="gallery">
+		<section class="wrapper">
+		  <div class="top">
+			<ul>
+			  <li><a href="#">City</a></li>
+			  <li><a href="#">Nature</a></li>
+			  <li><a href="#">Portraits</a></li>
+			  <li><a href="#">Show all</a></li>
+			</ul>
+		  </div>
+		  <div class="bottom">
+			<div class="frame"><img src="{% static './img/img-01.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-02.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-03.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-04.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-05.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-06.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-07.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-08.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-09.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-10.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-11.jpg' %}" alt="Image" /></div>
+			<div class="frame"><img src="{% static './img/img-12.jpg' %}" alt="Image" /></div>
+		  </div>
+		</section>
+	  </section>
+
+	  <footer>
+		<section class="wrapper">
+			<form action="">
+				<input type="text" placeholder="name" />
+				<input type="email" placeholder="email" />
+				<textarea name="" id="" cols="30" rows="5" placeholder="message"></textarea>
+				<input type="submit" value="send" />
+			</form>
+			<div class="middle">
+				<p class="paragraph">
+					120 curabitor sed tortur ultrices,congue odio eget,poseuro urna.prasent at rhonscus 1980.
+				</p>
+				<p class="tel">
+					Tel:010-020-0340
+				</p>
+				<ul>
+					<li class="social">
+						<a href="#" >
+							<img src="{% static 'img/facebook-brands.svg' %}" alt="Social Media">
+						</a>
+					</li>
+					<li class="social">
+						<a href="#" >
+							<img src="{% static 'img/twitter-brands.svg' %}" alt="Social Media">
+						</a>
+					</li>
+					<li class="social">
+						<a href="#" >
+							<img src="{% static 'img/instagram-brands.svg' %}" alt="Social Media">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="right">
+				<div class="img_container">
+					<img src="{% static 'img/searchengin-brands.svg' %}" alt="Lens">
+				</div>
+				<p>Contact</p>
+			</div>
+		</section>
+		<p class="footer">
+			Copyright 2020 Nano Folio  - Design Tooplate
+		</p>
+		
+	</footer>
+</body>
+</html>
