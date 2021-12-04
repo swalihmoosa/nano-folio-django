@@ -32,3 +32,15 @@ class Contact(models.Model):
 
     class Meta:
         ordering = ["id"]
+
+
+class About(models.Model):
+    image = models.ImageField(upload_to="about/")
+    title = models.CharField(max_length=155)
+    description = models.TextField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ["id"]
