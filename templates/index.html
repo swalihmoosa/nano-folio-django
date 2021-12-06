@@ -58,7 +58,9 @@
 		<div class="bottom">
 			{% for gallery in galleries %}
 			<div class="frame">
-				<img src="{{gallery.image.url}}" alt="Image" />
+				<a href="{% url 'web:gallery' pk=gallery.pk %}" >
+					<img src="{{gallery.image.url}}" alt="Image" />
+				</a>
 			</div>
 			{% endfor %}
 		  </div>

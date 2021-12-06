@@ -96,3 +96,13 @@ def category(request):
         }
 
     return JsonResponse({'response_data': response_data})
+
+
+def gallery(request,pk):
+    gallery = Gallery.objects.get(pk=pk)
+
+    context = {
+        "gallery" : gallery
+    }
+
+    return render(request,"gallery.html",context=context)
