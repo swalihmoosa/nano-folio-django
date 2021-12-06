@@ -13,7 +13,7 @@ class Category(models.Model):
 
 class Gallery(models.Model):
     image = models.ImageField(upload_to="gallery/")
-    Category = models.ForeignKey("web.Category",on_delete=models.CASCADE)
+    category = models.ForeignKey("web.Category",on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.image)

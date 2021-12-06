@@ -45,11 +45,15 @@
 		<section class="wrapper">
 		  <div class="top">
 			<ul>
-			  <li><a href="#">City</a></li>
-			  <li><a href="#">Nature</a></li>
-			  <li><a href="#">Portraits</a></li>
-			  <li><a href="#">Show all</a></li>
-			</ul>
+				{% for category in categories %}
+					<li>
+						<a href="{% url 'web:category' %}?category={{category.name}}">{{category.name}}</a>
+					</li>
+				{% endfor %}
+				<li>
+					<a href="{% url 'web:category' %}?category=All">All</a>
+				</li>
+				</ul>
 		  </div>
 		<div class="bottom">
 			{% for gallery in galleries %}
@@ -63,7 +67,7 @@
 
 	  <footer>
 		<section class="wrapper">
-			<form action="" method="post" class="ajax" >
+			<form action="{% url 'web:contact' %}" method="post" class="ajax">
 				{% csrf_token %}
 				{{form.name}}
 				{{form.email}}
@@ -107,8 +111,40 @@
 		</p>
 		
 	</footer>
+
 	<script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
-	<script src="{% static 'js/script' %}"></script>
-	<script src="{% static 'js/sweetalert2.min.js' %}"></script>
+    <script src="{% static 'js/sweetalert2.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+	<script>
+		var MEDIA_URL = "{{MEDIA_URL}}"
+		$('#gallery .top a').on('click', function(e){
+			e.preventDefault();
+			console.log("sfjbdkfjsjfb");
+			var $this = $(this);
+			var url = $this.attr("href")
+
+			$.ajax({
+				type:"GET",
+				url:url,
+				data: $(this),
+				success: function(data) {
+					console.log(data);
+					var r_data = data.response_data.data
+					console.log(r_data)
+					let html_data = ""
+					r_data.forEach((gallery) => {
+						html_data += `<div class="frame"><img src="${MEDIA_URL}/${gallery.image}" alt="Image" /></div>`
+					})
+					$("#gallery .bottom").html(html_data)
+				},
+				failure: function(data) { 
+					alert('Got an error dude');
+				},
+				processData:false,
+				contentType:false,
+				cache:false,
+			})
+		});
+	</script>
 </body>
 </html>

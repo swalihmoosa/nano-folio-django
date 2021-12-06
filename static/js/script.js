@@ -1,39 +1,38 @@
-$(document).ready(function () {
 
-    $("form.ajax").on("submit",function(event){
-        event.preventDefault();
-        var $this = $(this);
+$("form.ajax").on("submit",function(event){
+    event.preventDefault();
+    var $this = $(this);
+    
+    var url = $this.attr("action")
+    var method = $this.attr("method")
 
-        var url = $this.attr("action")
-        var method = $this.attr("method")
+    jQuery.ajax({
+        type:method,
+        url:url,
+        dataType:"json",
+        data:new FormData(this),
+        processData : false,
+        contentType : false,
+        cache : false,
 
-        jQuery.ajax({
-            type:method,
-            url:url,
-            dataType:"json",
-            data:new FormData(this),
-            processData : false,
-            contentType : false,
-            cache : false,
+        success:function(data){
 
-            success:function(data){
+            var title = data["title"]
+            var text = data["message"]
+            var status = data["status"]
 
-                var title = data["title"]
-                var text = data["message"]
-                var status = data["status"]
-
-                Swal.fire({
-                    icon: status,
-                    title: title,
-                    text : text
-                  })
-                  
-                if (status == "success"){
-                    $this.trigger("reset");
-                }
-            },
-            error : function(data){
-
+            Swal.fire({
+                icon: status,
+                title: title,
+                text : text
+                })
+                
+            if (status == "success"){
+                $this.trigger("reset");
             }
-        })
-    });
+        },
+        error : function(data){
+
+        }
+    })
+});
