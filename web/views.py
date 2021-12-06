@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from web.models import About, Address, Category, Contact, Gallery
+from web.forms import ContactForm
 
 
 def index(request):
@@ -9,6 +10,7 @@ def index(request):
     contacts = Contact.objects.all()
     abouts = About.objects.get()
     addresses = Address.objects.all()
+    form = ContactForm()
 
     context = {
         "categories" : categories,
@@ -16,6 +18,7 @@ def index(request):
         "contacts" : contacts,
         "abouts" : abouts,
         "addresses" : addresses,
+        "form" : form
     }
 
     return render(request,"index.html",context=context)
